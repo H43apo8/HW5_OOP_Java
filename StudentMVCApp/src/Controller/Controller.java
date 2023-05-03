@@ -76,3 +76,52 @@ public class Controller {
     }
 
 }
+// Добавляем команду DELETE в метод run класса контроллера
+public class Controller {
+    private Model model = new Model();
+    private View view = new View();
+
+    public void run() {
+        Scanner scanner = new Scanner(System.in);
+        boolean isRunning = true;
+
+        while (isRunning) {
+            view.showMenu();
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    // Добавление студента
+                    break;
+                case 2:
+                    // Получение списка студентов
+                    break;
+                case 3:
+                    // Получение информации о студенте
+                    break;
+                case 4:
+                    // Редактирование информации о студенте
+                    break;
+                case 5:
+                    // Удаление студента
+                    view.showDeleteStudent();
+                    long studentId = scanner.nextLong();
+                    boolean isDeleted = model.deleteStudent(studentId);
+                    if (isDeleted) {
+                        view.showSuccessDelete();
+                    } else {
+                        view.showErrorDelete();
+                    }
+                    break;
+                case 6:
+                    // Выход из программы
+                    isRunning = false;
+                    break;
+                default:
+                    // Некорректный ввод
+                    view.showInvalidInput();
+                    break;
+            }
+        }
+    }
+}

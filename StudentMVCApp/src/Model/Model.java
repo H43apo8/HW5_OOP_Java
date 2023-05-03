@@ -3,6 +3,7 @@ package Model;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import Model.Controller;
 
 // Класс Model, который реализует интерфейс iGetModel
 public class Model implements iGetModel {
